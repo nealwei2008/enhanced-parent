@@ -66,10 +66,10 @@
         <jsp.version>2.0</jsp.version>
         <dubbo.version>3.3.5</dubbo.version>
         <javassist.version>3.20.0-GA</javassist.version>
-        <zookeeper.version>3.4.14</zookeeper.version>
+        <zookeeper.version>3.6.0</zookeeper.version>
         <zkclient.version>0.1</zkclient.version>
         <zkclient1.version>0.10</zkclient1.version>
-        <curator.version>4.0.1</curator.version>
+        <curator.version>5.1.0</curator.version>
         <mysql.version>8.0.16</mysql.version>
         <druid.version>1.1.12</druid.version>
         <tair.version>2.3.4.5</tair.version>
@@ -91,7 +91,6 @@
         <commons-collections.version>3.2.2</commons-collections.version>
         <httpclient.version>4.5.5</httpclient.version>
         <quartz.version>2.3.2</quartz.version>
-        <junit.version>4.13.1</junit.version>
         <powermock.version>1.7.4</powermock.version>
         <rocketmq.version>4.1.0-incubating</rocketmq.version>
         <freemarker.version>2.3.23</freemarker.version>
@@ -244,6 +243,10 @@
                     <exclusion>
                         <groupId>org.slf4j</groupId>
                         <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-api</artifactId>
                     </exclusion>
                 </exclusions>
             </dependency>
@@ -423,12 +426,6 @@
             </dependency>
 
             <!-- JUnit & Mock -->
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${junit.version}</version>
-                <scope>test</scope>
-            </dependency>
             <dependency>
                 <groupId>org.powermock</groupId>
                 <artifactId>powermock-module-junit4</artifactId>
@@ -743,6 +740,12 @@
                 <groupId>com.alibaba.csp</groupId>
                 <artifactId>sentinel-datasource-zookeeper</artifactId>
                 <version>${sentinel.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-api</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>com.google.code.gson</groupId>
@@ -769,6 +772,10 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${maven-compiler-plugin.version}</version>
+                    <configuration>
+                        <!--强制添加-parameters标记-->
+                        <parameters>true</parameters>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -905,6 +912,9 @@
                         <goals>
                             <goal>sign</goal>
                         </goals>
+                        <configuration>
+                            <skip>true</skip>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
