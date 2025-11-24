@@ -60,7 +60,6 @@
         <sentinel.version>1.8.8</sentinel.version>
 
         <!-- Dependency versions -->
-        <tomcat.version>8.0.18</tomcat.version>
         <java.servlet-api.version>3.1.0</java.servlet-api.version>
         <jstl.version>1.2</jstl.version>
         <jsp.version>2.0</jsp.version>
@@ -70,7 +69,6 @@
         <zkclient.version>0.1</zkclient.version>
         <zkclient1.version>0.10</zkclient1.version>
         <curator.version>5.1.0</curator.version>
-        <mysql.version>8.0.16</mysql.version>
         <druid.version>1.1.12</druid.version>
         <tair.version>2.3.4.5</tair.version>
         <jedis.version>6.0.0</jedis.version>
@@ -205,13 +203,6 @@
                 <version>${java.servlet-api.version}</version>
             </dependency>
 
-            <!-- new tomcat -->
-            <dependency>
-                <groupId>org.apache.tomcat</groupId>
-                <artifactId>tomcat-jdbc</artifactId>
-                <version>${tomcat.version}</version>
-            </dependency>
-
             <dependency>
                 <groupId>org.apache.dubbo</groupId>
                 <artifactId>dubbo</artifactId>
@@ -260,11 +251,7 @@
             </dependency>
 
             <!-- Data -->
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql.version}</version>
-            </dependency>
+            <!-- mysql 配置依赖 spring-boot-dependencies -->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid</artifactId>
